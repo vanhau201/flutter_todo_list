@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Note> notes = [];
+  bool sorted = false;
   @override
   void initState() {
     super.initState();
@@ -35,9 +36,24 @@ class _HomeScreenState extends State<HomeScreen> {
   void _handleSearch(String textSearch) {
     setState(() {
       notes = sampleNotes
-          .where((note) => note.title.toLowerCase().contains(textSearch))
+          .where((note) =>
+              note.title.toLowerCase().contains(textSearch) ||
+              note.content.toLowerCase().contains(textSearch))
           .toList();
     });
+  }
+
+  void _handleSort() {
+    if (sorted) {
+      setState(() {
+        notes.sort((a, b) => a.modifiedTime.compareTo(b.modifiedTime));
+      });
+    } else {
+      setState(() {
+        notes.sort((a, b) => b.modifiedTime.compareTo(a.modifiedTime));
+      });
+    }
+    sorted = !sorted;
   }
 
   @override
@@ -57,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 IconButton(
                     padding: const EdgeInsets.all(0),
-                    onPressed: () {},
+                    onPressed: _handleSort,
                     icon: Container(
                       width: 40,
                       height: 40,

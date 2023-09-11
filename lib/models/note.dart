@@ -23,11 +23,11 @@ List<Note> sampleNotes = [
       title: "Học lập trình Python cơ bản",
       content:
           "Each different area of requires a separate initialization process. That way, if the application only needs to format dates, it doesn't need to take the time or space to load up messages, numbers, or other things it may not need.",
-      modifiedTime: DateTime(2023, 1, 1, 34, 5)),
+      modifiedTime: DateTime(2023, 1, 3, 34, 5)),
   Note(
       id: "3",
       title: "Học lập trình Java cơ bản",
       content:
           "Each different area of requires a separate initialization process. That way, if the application only needs to format dates, it doesn't need to take the time or space to load up messages, numbers, or other things it may not need.",
-      modifiedTime: DateTime(2023, 1, 1, 34, 5))
+      modifiedTime: DateTime(2023, 1, 2, 34, 5))
 ];
